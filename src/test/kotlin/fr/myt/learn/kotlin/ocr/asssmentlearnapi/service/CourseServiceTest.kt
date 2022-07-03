@@ -35,7 +35,11 @@ internal class CourseServiceTest {
 
         //GIVEN
 
-        every { courseRepository.findCourseById("1") } returns Course(title = "Java VS Kotlin", author = "Me", courseId = "1")
+        every { courseRepository.findCourseById("1") } returns Course(
+            title = "Java VS Kotlin",
+            author = "Me",
+            courseId = "1"
+        )
 
 
         //WHEN
@@ -52,7 +56,7 @@ internal class CourseServiceTest {
 
         //GIVEN
 
-        every { courseRepository.findCourseById("1") } throws  CourseNotFoundException("default message error")
+        every { courseRepository.findCourseById("1") } throws CourseNotFoundException("default message error")
 
 
         //WHEN - THEN
