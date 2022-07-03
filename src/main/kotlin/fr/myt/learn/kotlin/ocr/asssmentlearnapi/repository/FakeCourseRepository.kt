@@ -12,8 +12,9 @@ class FakeCourseRepository : CourseRepository {
     )
 
     override fun findCourseById(courseId: String): Course =
-        getAllCourses().find { it.courseId == courseId } ?: notFoundCourse()
+        getAllCourses().find { it.courseId == courseId } ?: failFindCourseOf(courseId)
 
-    private fun notFoundCourse(): Nothing = throw CourseNotFoundException("The book found not exist")
+    private fun failFindCourseOf(courseId: String): Nothing =
+        throw CourseNotFoundException("The course $courseId does not exist")
 
 }
